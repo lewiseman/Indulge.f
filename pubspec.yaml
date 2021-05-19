@@ -1,0 +1,57 @@
+name: indulge_me
+description: A new Flutter project.
+
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  get: ^4.1.4
+  get_storage: ^2.0.2
+  webview_flutter: ^2.0.4
+  modal_bottom_sheet: ^2.0.0
+  bubble_bottom_bar: ^1.2.0
+  filter_list: ^0.0.9
+  pull_to_refresh: ^1.6.5
+  http: ^0.13.3
+  bubble_tab_indicator: ^0.1.5
+  flutter_svg: ^0.22.0
+  google_fonts: ^2.1.0
+  form_field_validator: ^1.1.0
+  scroll_navigation: ^1.3.1
+  flutter_neumorphic: ^3.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+# The following section is specific to Flutter.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/images/intro/chat.svg
+    - assets/images/intro/main_top.png
+    - assets/images/intro/main_bottom.png
+    - assets/images/intro/google-plus.png
+    - assets/images/intro/login_bottom.png
+    - assets/images/intro/login.svg
+    - assets/images/intro/signup_top.png
+    - assets/images/intro/signup.svg
+    - assets/images/demo/user.jpg
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware.
