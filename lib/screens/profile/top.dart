@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class UserPic extends StatelessWidget {
+  final name;
+  UserPic(this.name);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -59,9 +61,9 @@ class UserPic extends StatelessWidget {
             ),
           ),
           Container(
-           padding: EdgeInsets.only(top: 6),
+            padding: EdgeInsets.only(top: 6),
             child: Text(
-              'Masaai Martin',
+              name,
             ),
           ),
         ],
