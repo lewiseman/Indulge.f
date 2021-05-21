@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:io';
 import 'package:indulge_me/main.dart';
 
-final addTextUrl = Uri.parse('https://indulge-me.herokuapp.com/indulge/home/');
+final addTextUrl = Uri.parse('https://indulge-me.herokuapp.com/indulge/posts');
 
 Future addText(title, story) async {
   final response = await http.post(

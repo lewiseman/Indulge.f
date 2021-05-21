@@ -2,8 +2,8 @@ import 'dart:convert' as convert;
 
 List<Story> storyFromJson(String body) {
   final jsonData = convert.jsonDecode(body);
-  //final jsonBody = jsonData['results'];
-  return List<Story>.from(jsonData.map((dynamic body) => Story.fromJson(body)));
+  final jsonBody = jsonData['results'];
+  return List<Story>.from(jsonBody.map((dynamic body) => Story.fromJson(body)));
 }
 
 class Story {
@@ -29,7 +29,7 @@ class Story {
 
   factory Story.fromJson(Map<String, dynamic> json) => Story(
         id: json['id'],
-        owner: json['owner'],
+        owner: json['owner_username'],
         title: json['title'],
         date: json['date'],
         story: json['story'],
