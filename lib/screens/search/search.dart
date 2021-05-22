@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:indulge_me/logic/search/services.dart';
+import 'package:indulge_me/screens/search/demo.dart';
 
 class Search extends StatefulWidget {
   @override
@@ -17,7 +18,7 @@ class _SearchState extends State<Search> {
   Timer _debounce;
 
   _search(data) async {
-    List<StorySearch> content = await searchData(data);
+    List<PostSearch> content = await searchData(data);
     _streamController.add(content);
   }
 
@@ -29,7 +30,14 @@ class _SearchState extends State<Search> {
   }
 
   @override
+  void dispose() {
+    node.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    FocusScope.of(context).requestFocus(node);
     return Scaffold(
       appBar: AppBar(
         title: Padding(
@@ -56,16 +64,24 @@ class _SearchState extends State<Search> {
               child: Text('Type something ...'),
             );
           } else if (snapshot.hasData) {
-            List<StorySearch> results = snapshot.data;
+            List<PostSearch> results = snapshot.data;
             return ListView.builder(
               itemCount: results.length,
               itemBuilder: (buider, index) {
                 return ListTile(
                   leading: Icon(Icons.blur_on_outlined),
-                  title: Text(results[index].title, style: TextStyle(fontWeight: FontWeight.bold),),
+                  title: Text(
+                    results[index].title,
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
                   subtitle: Text(results[index].story),
                   onLongPress: () {},
-                  onTap: () {},
+                  onTap: () {
+                    String title = results[index].title;
+                    String post = results[index].story;
+                    String owner = results[index].owner;
+                    Get.off(DemoItemSearch(post, title, owner));
+                  },
                 );
               },
             );

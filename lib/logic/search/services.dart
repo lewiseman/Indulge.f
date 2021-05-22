@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:io';
 import 'package:indulge_me/main.dart';
 
-Future<List<StorySearch>> searchData(data) async {
+Future<List<PostSearch>> searchData(data) async {
   final searchUrl =
       Uri.parse('https://indulge-me.herokuapp.com/indulge/posts?search=$data');
   final response = await http.get(
@@ -16,11 +16,11 @@ Future<List<StorySearch>> searchData(data) async {
   );
   var jsonData = convert.jsonDecode(response.body);
   var jsonBody = jsonData['results'];
-  return List<StorySearch>.from(
-      jsonBody.map((dynamic body) => StorySearch.fromJson(body)));
+  return List<PostSearch>.from(
+      jsonBody.map((dynamic body) => PostSearch.fromJson(body)));
 }
 
-class StorySearch {
+class PostSearch {
   String owner;
   String title;
   String date;
@@ -29,7 +29,7 @@ class StorySearch {
   String tags;
   int viewers;
 
-  StorySearch({
+  PostSearch({
     this.owner,
     this.title,
     this.date,
@@ -39,7 +39,7 @@ class StorySearch {
     this.viewers,
   });
 
-  factory StorySearch.fromJson(Map<String, dynamic> json) => StorySearch(
+  factory PostSearch.fromJson(Map<String, dynamic> json) => PostSearch(
         owner: json['owner_username'],
         title: json['title'],
         date: json['date'],

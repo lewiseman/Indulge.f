@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:indulge_me/screens/search/page.dart';
 import 'package:indulge_me/screens/search/search.dart';
 
 class SearchPage extends StatelessWidget {
@@ -39,14 +40,7 @@ class SearchPage extends StatelessWidget {
         backgroundColor: Get.context.theme.appBarTheme.color,
         elevation: 0,
       ),
-      body: ListView(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(18.0),
-            child: Center(child: Text('data')),
-          )
-        ],
-      ),
+      body: InactiveSearchPage(),
     );
   }
 }
